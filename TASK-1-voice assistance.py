@@ -7,6 +7,14 @@ def speak(text):
     says.say(text)
     says.runAndWait()
 
+def time():
+    current_time = datetime.datetime.now().strftime("%H:%M")
+    return f"Current time is{current_time}"
+
+def date():
+    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    return f"Today is {current_date}"
+
 
 def listening():
     a = sr.Recognizer()
@@ -39,6 +47,13 @@ def voice_assistant():
         elif "exit" in voice:
             speak("Bye Bye")
             break
+
+        elif "time" in voice:
+            speak(time())
+
+        elif "date" in voice:
+            speak(date())
+
 
         elif "what's your name" in voice:
             speak("I am a voice assistance.")
